@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todos los Productos - Chocolates Jein</title>
+    <link rel="shortcut icon" href="imagenes/images.jpeg" type="image/x-icon">
+    <style>
+        /* Estilos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            padding: 20px;
+            background-color: #795548;
+            text-align: center;
+            position: relative;
+        }
+        .products {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+            padding: 0 20px;
+        }
+        .product {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            width: 300px;
+            text-align: center;
+        }
+        .product:hover {
+            transform: translateY(-10px);
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+        }
+        .product h3 {
+            background-color: #3e2723;
+            color: white;
+            padding: 10px;
+            margin: 0;
+        }
+        .product .details {
+            padding: 15px;
+        }
+        .product .details p {
+            margin-bottom: 10px;
+        }
+        .product .details .price {
+            font-size: 1.2rem;
+            color: #e91e63;
+            margin-bottom: 10px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #795548;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            background-color: #5d4037;
+        }
+        #carrito {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        #carrito h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        #carrito ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        #carrito ul li {
+            margin-bottom: 10px;
+        }
+        #carrito .total {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        footer {
+            background-color: #3e2723;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Todos los Productos</h1>
+    </header>
+    <div class="products">
+        <div class="product">
+            <img src="imagenes/jumbo.jpeg" alt="Producto 1">
+            <div class="details">
+                <h3>JUMBO</h3>
+                <br>
+                <p>CARACTERISTICAS Chocolate con leche y maní jumbo 40g. Contiene: Azúcar,manteca de cacao. Leche en polvo. Maní. Licor de cacao. Lecitina de soya</p>
+                <p class="price">$6.000</p>
+                <button class="btn" onclick="agregarAlCarrito('Producto 1', 6000 )">Comprar</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="imagenes/G03.jpg" alt="Producto 2">
+            <div class="details">
+                <h3>HUEVO KINDER</h3>
+                <br>
+                <p>Huevo de Chocolate Kinder con una crema con leche, cacaco, avellanas y dos crujientes bolitas de wafer. Incluye cucharita y una divertida sorpresa (1 UNIDAD - 20 gr)
+
+                </p>
+                <p class="price">$9.000</p>
+                <button class="btn" onclick="agregarAlCarrito('Producto 2', 9000)">Comprar</button>
+            </div>
+        </div>
+   <div class="product">
+    <img src="imagenes/7702993044063_29.jpg" alt="Producto 3">
+    <div class="details">
+        <h3>TRULULU CHOCOLATES</h3>
+        <p>Chocolates Trululu Chocolores Chocolate x 30gr</p>
+        <br>
+        <p class="price">$2.000</p>
+        <button class="btn" onclick="agregarAlCarrito('Producto 3', 2000)">Comprar</button>
+    </div>
+</div>
+
+        <div class="product">
+            <img src="imagenes/chomelo.jpg" alt="Producto 4">
+            <div class="details">
+                <h3>CHOMELOS</h3>
+                <br>
+                <p>chomelos CHOCMELOS (57 gr)</p>
+                <Br></Br>
+                <h2>50% de descuento</h2>
+                <p class="price">$1.000</p>
+                <button class="btn" onclick="agregarAlCarrito('Producto 4', 1000)">Comprar</button>
+            </div>
+        </div>
+
+           <div class="product">
+            <img src="/imagenes/Imagen de WhatsApp 2024-05-13 a las 20.36.03_8a489a02.jpg" alt="Producto 2">
+            <div class="details">
+                <h3>MYM</h3>
+                <br>
+                <p>CHOCOLATE CON UNA CAPA DURA CON AZUCAR DE COLORES 
+SOBRE DE 49 GRAMOS 
+SABORES DISPONIBLES: MILK CHOCOLATE, CHOCOLATE MANI</p>
+                <p class="price">$15.000</p>
+                <button class="btn" onclick="agregarAlCarrito('Producto 2', 15000)">Comprar</button>
+            </div>
+        </div>
+
+           <div class="product">
+            <img src="imagenes/snack.jpg" alt="Producto Snack">
+            <div class="details">
+                <h3>SNICKERS</h3>
+                <br>
+                <p> Snickers es una barra de chocolate elaborada y distribuida por Mars Incorporated. Tiene un relleno de turrón y mantequilla de cacahuete con una cobertura de caramelo y cacahuetes troceados, cubierto con chocolate con leche.</p>
+                <p class="price">$1.000</p>
+                <button class="btn" onclick="agregarAlCarrito('Producto 2', 1000)">Comprar</button>
+            </div>
+        </div>
+           <div class="product">
+            <img src="imagenes/kitkat.jpeg" alt="Producto KitKat">
+            <div class="details">
+                <h3>KitKat</h3>
+                <br>
+                <p>Galleta Wafer KITKAT Recubierta Con Chocolate Con Leche X 41,5g</p>
+                <p class="price">$2.000</p>
+                <button class="btn" onclick="agregarAlCarrito('Producto 2', 2000)">Comprar</button>
+            </div>
+        </div>
+        <!-- Agrega más productos aquí -->
+    </div>
+    <div id="carrito">
+        <h2>Carrito de Compras</h2>
+        <ul id="lista-carrito"></ul>
+        <p class="total">Total: $<span id="total-carrito">0.00</span></p>
+        <button class="btn" onclick="finalizarCompra()">Finalizar Compra</button>
+    </div>
+    <footer>
+        <p>&copy; 2024 Chocolates Jein. Todos los derechos reservados.</p>
+    </footer>
+<script>
+    let carrito = [];
+
+    function agregarAlCarrito(nombre, precio) {
+        carrito.push({ nombre, precio });
+        actualizarCarrito();
+    }
+
+    function actualizarCarrito() {
+        const listaCarrito = document.getElementById('lista-carrito');
+        const totalCarrito = document.getElementById('total-carrito');
+        listaCarrito.innerHTML = '';
+        let total = 0;
+        carrito.forEach(producto => {
+            const li = document.createElement('li');
+            // Formatear el precio con separadores de miles y dos decimales
+            const precioFormateado = new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP' }).format(producto.precio);
+            li.textContent = `${producto.nombre} - ${precioFormateado}`;
+            listaCarrito.appendChild(li);
+            total += producto.precio;
+        });
+        // Formatear el total con separadores de miles y dos decimales
+        const totalFormateado = new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP' }).format(total);
+        totalCarrito.textContent = totalFormateado;
+    }
+
+    function finalizarCompra() {
+        fetch('/finalizar-compra', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(carrito)
+        }).then(response => {
+            if (response.ok) {
+                alert('Compra finalizada con éxito!');
+                carrito = [];
+                actualizarCarrito();
+            } else {
+                alert('Hubo un problema con la compra.');
+            }
+        });
+    }
+</script>
+
+
+</body>
+</html>

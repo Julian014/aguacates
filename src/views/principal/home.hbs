@@ -1,24 +1,261 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXUS</title>
-    <link rel="shortcut icon" href="/imagenes/logo pestaña.jpg" type="image/x-icon">
-
+    <title>Chocolates Jein</title>
+    <link rel="shortcut icon" href="imagenes/images.jpeg" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        #JUNIO {
+            padding: 30px;
+            text-align: center;
+            background-color: #3e2723;
+            color: white;
+            font-size: 2rem;
+        }
+        header {
+            padding: 20px;
+            background-color: #795548;
+            text-align: center;
+            position: relative;
+        }
+        #campana {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background-image: url('/imagenes/anadir-al-carrito.png');
+            background-size: cover;
+            cursor: pointer;
+        }
+        .products {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .product {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            width: 300px;
+        }
+        .product:hover {
+            transform: translateY(-10px);
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+        }
+        .product h3 {
+            background-color: #3e2723;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin: 0;
+        }
+        .product .details {
+            padding: 15px;
+            text-align: center;
+        }
+        .product .details p {
+            margin-bottom: 10px;
+        }
+        .product .details a {
+            text-decoration: none;
+            color: #3e2723;
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #795548;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+            margin: 20px auto;
+            display: block;
+        }
+        .btn:hover {
+            background-color: #5d4037;
+        }
+        footer {
+            background-color: #3e2723;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        footer .redes-sociales {
+            margin-bottom: 20px;
+        }
+        footer .redes-sociales h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        footer .iconos-redes {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        footer .iconos-redes a {
+            display: inline-block;
+        }
+        footer .iconos-redes img {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s ease;
+        }
+        footer .iconos-redes img:hover {
+            transform: scale(1.1);
+        }
+        footer .formulario-contacto {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        footer .formulario-contacto h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        footer .formulario-contacto input[type="text"],
+        footer .formulario-contacto input[type="email"],
+        footer .formulario-contacto textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            resize: none;
+        }
+        footer .formulario-contacto input[type="submit"] {
+            background-color: #5d4037;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        footer .formulario-contacto input[type="submit"]:hover {
+            background-color: #3e2723;
+        }
+        .creator-info {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .photo-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .photo-gallery img {
+            width: 200px;
+            height: auto;
+            border: 2px solid #000;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
-    
-    <h1>nexus INOVATIONS</h1>
+    <h1 id="JUNIO">CHOCOLATES JEIN</h1>
+    <header>
+        <div id="campana" onclick="mostrarVentanaEmergente()"></div>
+    </header>
+    <div class="products">
+        <div class="product">
+            <img src="/imagenes/Imagen de WhatsApp 2024-05-13 a las 20.36.03_8a489a02.jpg" alt="Producto MM">
+            <div class="details">
+                <h3>MM</h3>
+                <br>
+                <p>CHOCOLATE CON UNA CAPA DURA CON AZUCAR DE COLORES 
+SOBRE DE 49 GRAMOS 
+SABORES DISPONIBLES: MILK CHOCOLATE, CHOCOLATE MANI </p>
+                <a class="btn" href="/todo">Ver más</a>
+            </div>
+        </div>
+        <div class="product">
+            <img src="imagenes/chomelo.jpg" alt="Producto Chomelo">
+            <div class="details">
+                <h3>Chomelo</h3>
+                <br>
+                <p>Exquisito chocolate Chomelo
+                    Masmelo Chocmelos 133 G
 
-
-
-
-
-
-
-
-
-
+                </p>
+                <a class="btn" href="/todo">Ver más</a>
+            </div>
+        </div>
+        <div class="product">
+            <img src="imagenes/kitkat.jpeg" alt="Producto KitKat">
+            <br>
+            <br>
+            <div class="details">
+                <h3>KitKat</h3>
+                <br>
+                <p>Galleta Wafer KITKAT Recubierta Con Chocolate Con Leche X 41,5g</p>
+                <br>
+                <a class="btn" href="/todo">Ver más</a>
+            </div>
+        </div>
+        <div class="product">
+            <img src="imagenes/snack.jpg" alt="Producto Snack">
+            <div class="details">
+                <h3>Snack</h3>
+                <p>Snickers es una barra de chocolate elaborada y distribuida por Mars Incorporated. Tiene un relleno de turrón y mantequilla de cacahuete con una cobertura de caramelo y cacahuetes troceados, cubierto con chocolate con leche.</p>
+                <a class="btn" href="/todo">Ver más</a>
+            </div>
+        </div>
+    </div>
+    <a class="btn" href="/todo">Ver todos los productos</a>
+    <div class="creator-info">
+        <h2>Creada por:</h2>
+        <div class="photo-gallery">
+            <img src="imagenes/JULIAN.jpg" alt="Foto de Julian">
+            <img src="imagenes/jean.jpg" alt="Foto de Jean">
+        </div>
+    </div>
+    <br>
+    <br>
+    <footer>
+        <div class="redes-sociales">
+            <h3>Síguenos en redes sociales:</h3>
+            <div class="iconos-redes">
+                <a href="https://www.facebook.com/profile.php?id=100069676776450&mibextid=LQQJ4d" target="_blank">
+                    <img src="/imagenes/Facebook_logo_(square).png" alt="Facebook">
+                </a>
+                <a href="https://www.instagram.com/jean_soler?igsh=c290MTFyY212YWN1" target="_blank">
+                    <img src="/imagenes/images (1).jpeg" alt="Instagram">
+                </a>
+            </div>
+        </div>
+        <div class="formulario-contacto">
+            <h3>Contáctanos</h3>
+            <form>
+                <input type="text" placeholder="Tu nombre">
+                <input type="email" placeholder="Tu correo">
+                <textarea placeholder="Tu mensaje"></textarea>
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+    </footer>
 </body>
 </html>

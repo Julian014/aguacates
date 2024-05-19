@@ -20,6 +20,8 @@ const connection = mysql.createConnection({
     port: 3306
 });
 
+
+
 // Verificar la conexión
 connection.connect((err) => {
     if (err) {
@@ -29,6 +31,7 @@ connection.connect((err) => {
     console.log('Conexión a la base de datos MySQL establecida correctamente');
 });
 
+
 // Ruta para la página principal
 app.get('/principal', (req, res) => {
     res.render('principal/home'); // Renderiza la vista 'home.hbs'
@@ -36,9 +39,25 @@ app.get('/principal', (req, res) => {
 
 
 
+// Ruta para la página principal
+app.get('/todo', (req, res) => {
+    res.render('productos/todo.hbs'); // Renderiza la vista 'home.hbs'
+});
 
 
 
+
+
+
+
+
+
+app.post('/finalizar-compra', (req, res) => {
+    const carrito = req.body;
+    console.log('Carrito recibido:', carrito);
+    // Aquí puedes agregar la lógica para procesar el carrito, como guardar en la base de datos o procesar pagos
+    res.send('Compra finalizada con éxito!');
+});
 
 
 
