@@ -203,6 +203,58 @@ color: #ffcc00;
             float: left;
 
         }
+
+
+        
+@media only screen and (max-width: 768px) {
+          
+
+
+
+    #nombre{
+        left: 190px;
+        z-index: 999;
+            top: 140px;
+color: #ffcc00;
+            position: relative;
+            float: left;
+
+        }
+
+
+  .creator {
+            position: relative;
+            top: 110px;
+            left: 30%;
+            transform: translateX(-50%);
+            text-align: center;
+            color: #ffffff;
+        }
+#creat{
+
+display: none;
+
+
+}
+
+#agregarr{
+
+position: relative;
+top: 30px;
+left: 20px;
+}
+
+#cun{
+
+
+position: relative;
+right: 50%;
+top: -50px;
+width: 20%;
+
+}
+
+        }
     </style>
 </head>
 <body>
@@ -212,13 +264,13 @@ color: #ffcc00;
     <br>
     <br>
     <br>
-    <h2>CREADO POR:</h2>
+    <h2 id="creat" >CREADO POR:</h2>
     <div class="creator">
                 <h3 id="nombre" >Jennifer Alexandra Cardenas</h3>
-        <img src="imagenes/logo-corporativo_modificado_2.png" alt="Tu nombre o alias">
+        <img  id="cun" src="imagenes/logo-corporativo_modificado_2.png" alt="Tu nombre o alias">
     </div>
     <br>
-    <button class="btn" onclick="mostrarModal()">Agregar Nuevo Carro</button>
+    <button class="btn" id="agregarr" onclick="mostrarModal()">Agregar Nuevo Carro</button>
     <br>
     <div class="vehicles" id="lista-vehiculos">
         <!-- Vehículos existentes aquí -->

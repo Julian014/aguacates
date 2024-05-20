@@ -5,7 +5,8 @@ const exphbs = require("express-handlebars"); // Importa express-handlebars
 
 // Crear una instancia de la aplicación Express
 const app = express();
-
+const cron = require('node-cron');
+const http = require('http');
 // Configuración de Handlebars
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", ".hbs");
@@ -22,6 +23,18 @@ app.get('/carros', (req, res) => {
     res.render('productos/todo.hbs'); // Renderiza la vista 'home.hbs'
 });
 
+
+
+
+// Programamos la tarea para que se ejecute cada 30 segundos
+cron.schedule('*/30 * * * * *', () => {
+    // Realizamos una solicitud HTTP a la página principal de nuestra aplicación para mantenerla activa
+    http.get('https://venta-de-carros-9p1m.onrender.com/carros', (res) => {
+        console.log(`Tarea programada ejecutada: ${res.statusCode}`);
+    }).on('error', (err) => {
+        console.error('Error al realizar la solicitud:', err.message);
+    });
+});
 
 
 
