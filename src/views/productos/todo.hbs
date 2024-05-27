@@ -1,495 +1,218 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JENNIFER</title>
-    <link rel="shortcut icon" href="imagenes/logo-corporativo_modificado_2.png" type="image/x-icon">
-    <style>
-        /* Estilos */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #1c1c1c;
-            color: #ffffff;
-            line-height: 1.6;
-            padding-top: 50px;
-        }
-        header {
-            padding: 20px;
-            background-color: #222222;
-            text-align: center;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-        }
-        header h1 {
-            font-size: 24px;
-        }
-        .vehicles {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin: 100px auto;
-            padding: 0 20px;
-        }
-        .vehicle {
-            background-color: #333333;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            transition: transform 0.3s ease;
-            width: 300px;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .vehicle:hover {
-            transform: translateY(-10px);
-        }
-        .vehicle img {
-            width: 100%;
-            height: auto;
-        }
-        .vehicle h3 {
-            background-color: #444444;
-            color: #ffffff;
-            padding: 10px;
-            margin: 0;
-        }
-        .vehicle .details {
-            padding: 15px;
-            background-color: #555555;
-        }
-        .vehicle .details p {
-            margin-bottom: 10px;
-            color: #dddddd;
-        }
-        .vehicle .details .price {
-            font-size: 1.2rem;
-            color: #ffcc00;
-            margin-bottom: 10px;
-        }
-        .btn {
-            display: inline-block;
-            background-color: #ffcc00;
-            color: #222222;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-align: center;
-            text-decoration: none;
-            font-size: 1rem;
-            transition: background-color 0.3s ease;
-            margin-top: 10px;
-            border: none;
-            cursor: pointer;
-        }
-        .btn:hover {
-            background-color: #ffee33;
-        }
-        footer {
-            background-color: #222222;
-            color: #dddddd;
-            text-align: center;
-            padding: 20px 0;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-        }
-        .creator {
-            position: absolute;
-            top: 50px;
-            left: 12%;
-            transform: translateX(-50%);
-            text-align: center;
-            color: #ffffff;
-        }
-        .creator img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin-top: 20px;
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.5);
-        }
-        .modal-content {
-            background-color: #222222;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 600px;
-            border-radius: 10px;
-            color: #ffffff;
-        }
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .close:hover,
-        .close:focus {
-            color: #ffffff;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        #carrito {
-            
-            color: black;
-            position: fixed;
-top: 100PX;            right: 20px;
-            background-color: #fff;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            display: block; /* Asegúrate de que el carrito esté visible */
-        }
-        #carrito h2 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
-        #carrito ul {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 20px;
-        }
-        #carrito ul li {
-            margin-bottom: 10px;
-        }
-        #carrito .total {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-        /* Estilos del formulario */
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        .form-group input, .form-group select {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: #444;
-            color: #fff;
-        }
-        #nombre{
-            top: 110px;
-color: #ffcc00;
-            position: relative;
-            float: left;
-
-        }
-
-
-        
-@media only screen and (max-width: 768px) {
-          
-
-
-
-    #nombre{
-        left: 190px;
-        z-index: 999;
-            top: 140px;
-color: #ffcc00;
-            position: relative;
-            float: left;
-
-        }
-
-
-  .creator {
-            position: relative;
-            top: 110px;
-            left: 30%;
-            transform: translateX(-50%);
-            text-align: center;
-            color: #ffffff;
-        }
-#creat{
-
-display: none;
-
-
-}
-
-#agregarr{
-
-position: relative;
-top: 30px;
-left: 20px;
-}
-
-#cun{
-
-
-position: relative;
-right: 50%;
-top: -50px;
-width: 20%;
-
-}
-
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mundo Aguacate - Productos</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    body {
+      background-color: #e8f5e9; /* Color de fondo verde claro */
+      font-family: 'Pacifico', cursive; /* Fuente Pacifico */
+    }
+    .navbar {
+      background-color: #6b8e23;
+      animation: slideIn 1s ease-out;
+    }
+    .navbar-brand, .nav-link {
+      color: #fff !important;
+    }
+    .nav-link:hover {
+      color: #ffd700 !important;
+    }
+    .jumbotron {
+      background-color: #8fbc8f;
+      color: #fff;
+      animation: fadeIn 2s ease-in;
+    }
+    .btn-primary {
+      background-color: #556b2f;
+      border-color: #556b2f;
+      animation: bounce 2s infinite;
+    }
+    .btn-primary:hover {
+      background-color: #6b8e23;
+      border-color: #6b8e23;
+    }
+    .gallery {
+      margin-top: 30px;
+    }
+    .gallery img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      animation: zoomIn 1s ease-in;
+    }
+    @keyframes slideIn {
+      from { transform: translateX(-100%); }
+      to { transform: translateX(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-30px); }
+      60% { transform: translateY(-15px); }
+    }
+    @keyframes zoomIn {
+      from { transform: scale(0); }
+      to { transform: scale(1); }
+    }
+    #cart {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    #cart h2 {
+      font-family: 'Pacifico', cursive;
+      color: #556b2f;
+    }
+    #totalAmount {
+      color: #ff4500;
+      font-weight: bold;
+    }
+    .list-group-item {
+      background-color: #f8f8f8;
+      border: 1px solid #e0e0e0;
+    }
+    .badge-primary {
+      background-color: #556b2f;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>CONCESIONARIO JENNIFER</h1>
-    </header>
-    <br>
-    <br>
-    <br>
-    <h2 id="creat" >CREADO POR:</h2>
-    <div class="creator">
-                <h3 id="nombre" >Jennifer Alexandra Cardenas</h3>
-        <img  id="cun" src="imagenes/logo-corporativo_modificado_2.png" alt="Tu nombre o alias">
+  <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="#">Mundo Aguacate</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/principal">Inicio</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Productos <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">Nosotros</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Contacto</a>
+        </li>
+      </ul>
     </div>
-    <br>
-    <button class="btn" id="agregarr" onclick="mostrarModal()">Agregar Nuevo Carro</button>
-    <br>
-    <div class="vehicles" id="lista-vehiculos">
-        <!-- Vehículos existentes aquí -->
-        <div class="vehicle">
-            <img src="imagenes/desktop-wallpaper-black-chevrolet-camaro-1600×1200-camaro.jpg" alt="Vehículo 1">
-            <div class="details">
-                <h3>Chevrolet Camaro</h3>
-                <br>
-                <p>Año: 2023<br>Color: Rojo<br>Motor: V8 6.2L<br>Transmisión: Automática<br>Precio: $150,000.000</p>
-                <button class="btn" onclick="agregarAlCarrito('Chevrolet Camaro', 150000000)">Comprar</button>
+  </nav>
+
+  <div class="container">
+    <div id="products" class="gallery">
+      <h2 class="text-center mb-4">Nuestros Productos</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <img src="imagenes/images.jpg" class="card-img-top" alt="Aguacate 1">
+            <div class="card-body">
+              <h5 class="card-title">Aguacate Fresco</h5>
+              <p class="card-text">Precio por kilo: $8.000</p>
+              <form onsubmit="addToCart(event, 'Aguacate Fresco', 8000, 'quantity1')">
+                <div class="form-group">
+                  <label for="quantity1">Cantidad (en kilos):</label>
+                  <input type="number" class="form-control" id="quantity1" min="0" value="0">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-cart-plus"></i> Agregar al Carrito</button>
+              </form>
             </div>
+          </div>
         </div>
-
-
-
-        <!-- Vehículos existentes aquí -->
-        <div class="vehicle">
-            <img src="imagenes/images (1).jpeg" alt="Vehículo 2">
-            <div class="details">
-                <h3>Ford Mustang</h3>
-                <br>
-                <p>Año: 2022<br>Color: Negro<br>Motor: V6 3.7L<br>Transmisión: Manual<br>Precio: $145.000.000</p>
-                <button class="btn" onclick="agregarAlCarrito('Ford Mustang', 145000000)">Comprar</button>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="imagenes/maduro.jpg" class="card-img-top" alt="Aguacate 2">
+            <div class="card-body">
+              <h5 class="card-title">Aguacate Maduro</h5>
+              <p class="card-text">Precio por kilo: $6.000</p>
+              <form onsubmit="addToCart(event, 'Aguacate Maduro', 6000, 'quantity2')">
+                <div class="form-group">
+                  <label for="quantity2">Cantidad (en kilos):</label>
+                  <input type="number" class="form-control" id="quantity2" min="0" value="0">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-cart-plus"></i> Agregar al Carrito</button>
+              </form>
             </div>
+          </div>
         </div>
-
-
-
-
-        <div class="vehicle">
-            <img src="imagenes/images (2).jpeg" alt="Vehículo 3">
-            <div class="details">
-                <h3>Toyota RAV4</h3>
-                <br>
-                <p>Año: 2024<br>Color: Negro<br>Motor: 2.5L Inline-4<br>Transmisión: Automática<br>Precio: $335,000.000</p>
-                <button class="btn" onclick="agregarAlCarrito('Toyota RAV4', 335000000)">Comprar</button>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="imagenes/organico.jpg" class="card-img-top" alt="Aguacate 3">
+            <div class="card-body">
+              <h5 class="card-title">Aguacate Orgánico</h5>
+              <p class="card-text">Precio por kilo: $7.000</p>
+              <form onsubmit="addToCart(event, 'Aguacate Orgánico', 7000, 'quantity3')">
+                <div class="form-group">
+                  <label for="quantity3">Cantidad (en kilos):</label>
+                  <input type="number" class="form-control" id="quantity3" min="0" value="0">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-cart-plus"></i> Agregar al Carrito</button>
+              </form>
             </div>
+          </div>
         </div>
-
-
-
-        <div class="vehicle">
-            <img src="imagenes/descarga.jpeg" alt="Vehículo 4">
-            <div class="details">
-                <h3>Rolls-Royce Phantom</h3>
-                <br>
-                <p>Año: 2024<br>Color: Negro<br>Motor: 6.7L V12<br>Transmisión: Automática<br>Precio: $500,000.000</p>
-                <button class="btn" onclick="agregarAlCarrito('Toyota RAV4', 500000000)">Comprar</button>
-            </div>
-        </div>
-
-
-
-     <div class="vehicle">
-            <img src="imagenes/images (3).jpeg" alt="Vehículo 5">
-            <div class="details">
-                <h3>Mercedes-Benz Clase S</h3>
-                <br>
-                <p>Año: 2024<br>Color: Negro<br>Motor: 4.4L V8<br>Transmisión: Automática<br>Precio: $195,000</p>
-                <button class="btn" onclick="agregarAlCarrito('Mercedes-Benz', 195000000)">Comprar</button>
-            </div>
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-        
-        <!-- Aquí van los otros vehículos -->
+      </div>
     </div>
-    <div id="carrito">
-        <h2>Carrito de Compras</h2>
-        <ul id="lista-carrito"></ul>
-        <p class="total">Total: $<span id="total-carrito">0.00</span></p>
-        <button class="btn" onclick="finalizarCompra()">Finalizar Compra</button>
+    <div id="cart" class="mt-4">
+      <h2 class="text-center">Carrito de Compras</h2>
+      <ul id="cartItems" class="list-group">
+        <!-- Items del carrito -->
+      </ul>
+      <p class="text-right mt-3"><strong>Total: $<span id="totalAmount">0</span></strong></p>
+      <button id="purchaseButton" class="btn btn-success btn-block" style="display: none;"><i class="fas fa-credit-card"></i> Comprar</button>
     </div>
-    <footer>
-        <p>&copy; 2024 Todos los derechos reservados.</p>
-    </footer>
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Agregar Nuevo Carro</h2>
-            <form id="carForm">
-                <div class="form-group">
-                    <label for="carName">Nombre del Carro:</label>
-                    <input type="text" id="carName" name="carName" required>
-                </div>
-                <div class="form-group">
-                    <label for="carYear">Año:</label>
-                    <input type="number" id="carYear" name="carYear" required>
-                </div>
-                <div class="form-group">
-                    <label for="carColor">Color:</label>
-                    <input type="text" id="carColor" name="carColor" required>
-                </div>
-                <div class="form-group">
-                    <label for="carEngine">Motor:</label>
-                    <input type="text" id="carEngine" name="carEngine" required>
-                </div>
-                <div class="form-group">
-                    <label for="carTransmission">Transmisión:</label>
-                    <input type="text" id="carTransmission" name="carTransmission" required>
-                </div>
-                <div class="form-group">
-                    <label for="carPrice">Precio:</label>
-                    <input type="number" id="carPrice" name="carPrice" required>
-                </div>
-                <button type="submit" class="btn">Agregar Carro</button>
-            </form>
-        </div>
-    </div>
-    <script>
-        // Función para mostrar y ocultar el modal
-        const modal = document.getElementById('myModal');
-        const span = document.getElementsByClassName('close')[0];
+  </div>
+  
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script>
+    const cart = [];
+    let totalAmount = 0;
 
-        function mostrarModal() {
-            modal.style.display = 'block';
-        }
+    function addToCart(event, name, price, quantityId) {
+      event.preventDefault();
+      const quantity = parseInt(document.getElementById(quantityId).value);
+      if (quantity > 0) {
+        const cartItem = { name, price, quantity };
+        cart.push(cartItem);
+        totalAmount += price * quantity;
+        updateCart();
+      }
+    }
 
-        span.onclick = function() {
-            modal.style.display = 'none';
-        }
-
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
-        }
-
-        // Función para manejar el formulario de nuevo carro
-        document.getElementById('carForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const carName = document.getElementById('carName').value;
-            const carYear = document.getElementById('carYear').value;
-            const carColor = document.getElementById('carColor').value;
-            const carEngine = document.getElementById('carEngine').value;
-            const carTransmission = document.getElementById('carTransmission').value;
-            const carPrice = document.getElementById('carPrice').value;
-
-            agregarCarro(carName, carYear, carColor, carEngine, carTransmission, carPrice);
-
-            modal.style.display = 'none';
-        });
-
-        // Función para agregar un nuevo carro a la lista de vehículos
-        function agregarCarro(name, year, color, engine, transmission, price) {
-            const listaVehiculos = document.getElementById('lista-vehiculos');
-
-            const vehicleDiv = document.createElement('div');
-            vehicleDiv.className = 'vehicle';
-
-            const vehicleImg = document.createElement('img');
-            // Aquí puedes definir la lógica para la imagen del carro, si deseas cargarla dinámicamente.
-
-            const detailsDiv = document.createElement('div');
-            detailsDiv.className = 'details';
-
-            const vehicleTitle = document.createElement('h3');
-            vehicleTitle.textContent = name;
-
-            const vehicleDetails = document.createElement('p');
-            vehicleDetails.innerHTML = `Año: ${year}<br>Color: ${color}<br>Motor: ${engine}<br>Transmisión: ${transmission}<br>Precio: $${price}`;
-
-            const buyButton = document.createElement('button');
-            buyButton.className = 'btn';
-            buyButton.textContent = 'Comprar';
-            buyButton.onclick = function() {
-                agregarAlCarrito(name, parseFloat(price));
-            }
-
-            detailsDiv.appendChild(vehicleTitle);
-            detailsDiv.appendChild(vehicleDetails);
-            detailsDiv.appendChild(buyButton);
-
-            vehicleDiv.appendChild(vehicleImg);
-            vehicleDiv.appendChild(detailsDiv);
-
-            listaVehiculos.appendChild(vehicleDiv);
-        }
-
-        // Funciones para manejar el carrito de compras
-        let carrito = [];
-
-        function agregarAlCarrito(nombre, precio) {
-            carrito.push({ nombre, precio });
-            actualizarCarrito();
-        }
-
-function actualizarCarrito() {
-    const listaCarrito = document.getElementById('lista-carrito');
-    const totalCarrito = document.getElementById('total-carrito');
-    listaCarrito.innerHTML = '';
-    let total = 0;
-    carrito.forEach(producto => {
+    function updateCart() {
+      const cartItemsElement = document.getElementById('cartItems');
+      cartItemsElement.innerHTML = '';
+      cart.forEach(item => {
         const li = document.createElement('li');
-        li.textContent = `${producto.nombre} - $${producto.precio.toLocaleString('es-ES')}`;
-        listaCarrito.appendChild(li);
-        total += producto.precio;
-    });
-    totalCarrito.textContent = `$${total.toLocaleString('es-ES')}`;
-}
-
-        function finalizarCompra() {
-            alert('¡Compra finalizada con éxito!');
-            carrito = [];
-            actualizarCarrito();
-        }
-    </script>
+        li.className = 'list-group-item d-flex justify-content-between align-items-center';
+        li.innerHTML = `
+          <div>
+            <i class="fas fa-shopping-cart"></i> ${item.name} - ${item.quantity} kg
+          </div>
+          <span class="badge badge-primary badge-pill">$${item.price * item.quantity}</span>
+        `;
+        cartItemsElement.appendChild(li);
+      });
+      document.getElementById('totalAmount').textContent = totalAmount;
+      const purchaseButton = document.getElementById('purchaseButton');
+      if (cart.length > 0) {
+        purchaseButton.style.display = 'block';
+      } else {
+        purchaseButton.style.display = 'none';
+      }
+    }
+  </script>
 </body>
 </html>
-
-       

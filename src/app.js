@@ -19,23 +19,17 @@ app.use(express.static(path.join(__dirname, "public")));
 
 
 // Ruta para la página principal
-app.get('/carros', (req, res) => {
+app.get('/producto', (req, res) => {
     res.render('productos/todo.hbs'); // Renderiza la vista 'home.hbs'
 });
 
 
 
 
-// Programamos la tarea para que se ejecute cada 30 segundos
-cron.schedule('*/30 * * * * *', () => {
-    // Realizamos una solicitud HTTP a la página principal de nuestra aplicación para mantenerla activa
-    http.get('https://venta-de-carros-9p1m.onrender.com/carros', (res) => {
-        console.log(`Tarea programada ejecutada: ${res.statusCode}`);
-    }).on('error', (err) => {
-        console.error('Error al realizar la solicitud:', err.message);
-    });
+// Ruta para la página principal
+app.get('/principal', (req, res) => {
+    res.render('principal/principal.hbs'); // Renderiza la vista 'home.hbs'
 });
-
 
 
 
