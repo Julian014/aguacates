@@ -14,6 +14,7 @@
     "express-handlebars": "^7.1.2",
     "handlebars": "^4.7.8",
     "hbs": "^4.2.0",
+    "middleware": "^1.0.0",
     "msql": "^1.0.3",
     "mysql2": "^3.9.6",
     "node-cron": "^3.0.3"

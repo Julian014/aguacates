@@ -13,83 +13,32 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Conección a la base de datos
 
+app.use(express.json());  // Asegúrate de que esta línea esté antes de las rutas
 
 // Verificar la conexión
 
 
 // Ruta para la página principal
-app.get('/producto', (req, res) => {
-    res.render('productos/todo.hbs'); // Renderiza la vista 'home.hbs'
+app.get('/servientrega', (req, res) => {
+    res.render('servientrega.hbs');
 });
 
 
 
 
-// Ruta para la página principal
-app.get('/principal', (req, res) => {
-    res.render('principal/principal.hbs'); // Renderiza la vista 'home.hbs'
+app.post('/enviar-ubicacion', (req, res) => {
+    const { latitud, longitud } = req.body;
+
+    // Verificar que se hayan recibido correctamente los datos
+    if (!latitud || !longitud) {
+        return res.status(400).json({ error: 'Latitud y longitud son requeridas' });
+    }
+
+    console.log(`Ubicación recibida: Latitud - ${latitud}, Longitud - ${longitud}`);
+
+    // Puedes realizar cualquier acción con la ubicación aquí
+    res.status(200).json({ message: 'Ubicación recibida correctamente' });
 });
-
-
-
-// Ruta para la página principal
-app.get('/servicios', (req, res) => {
-    res.render('servicios/servicios.hbs'); // Renderiza la vista 'home.hbs'
-});
-
-
-
-// Endpoint para recibir mensajes del chatbot
-app.post('/chatbot', (req, res) => {
-    const message = req.body.message;
-
-    // Aquí puedes implementar la lógica del chatbot para procesar el mensaje y generar una respuesta
-    const response = generateResponse(message);
-
-    res.json({ response });
-});
-
-
-
-
-
-
-function generateResponse(message) {
-    // Aquí puedes implementar la lógica para generar la respuesta del chatbot
-    // Por ejemplo, puedes usar una librería de procesamiento del lenguaje natural (NLP) como Natural o comprender la intención del usuario y generar una respuesta apropiada.
-    // Por ahora, simplemente devolveremos un mensaje de ejemplo
-    return "¡Hola! Soy un chatbot. ¿En qué puedo ayudarte?";
-}
-
-
-app.post('/finalizar-compra', (req, res) => {
-    const carrito = req.body;
-    console.log('Carrito recibido:', carrito);
-    // Aquí puedes agregar la lógica para procesar el carrito, como guardar en la base de datos o procesar pagos
-    res.send('Compra finalizada con éxito!');
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // Iniciar el servidor
 const PORT = process.env.PORT || 2000;

